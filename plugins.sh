@@ -2,7 +2,9 @@
 
 # WORDPRESS PLUGINS
 
-# Chown Contnet Folder
+# Make and Chown Contnet Folder
+mkdir /var/www/html/wp-content
+mkdir /var/www/html/wp-content/plugins
 sudo chown -R www-data:www-data /var/www/html/wp-content
 
 if [ "$1" ]; then

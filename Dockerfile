@@ -46,8 +46,6 @@ RUN { \
 # WORDPRESS Plugins Setup
 
 RUN mkdir /plugins \
-  && mkdir /var/www/html/wp-content \
-  && mkdir /var/www/html/wp-content/plugins
 
 # Add All Plugin Files
 ADD ./wordpress/plugins/ /plugins
