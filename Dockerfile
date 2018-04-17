@@ -45,10 +45,10 @@ RUN { \
 
 # WORDPRESS Plugins Setup
 
-RUN mkdir /plugins
+RUN mkdir /var/www/html/wp-content/plugins
 
 # Add All Plugin Files
-ADD ./wordpress/plugins/ /plugins
+ADD ./wordpress/plugins/ /var/www/html/wp-content/plugins
 
 # Execute independently for better caching support
 RUN /plugins.sh /plugins/base
