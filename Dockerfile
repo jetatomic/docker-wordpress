@@ -82,9 +82,9 @@ RUN set -ex; \
 	
 # Custom scripts
 # ADD vars.sh /vars.sh
-ADD ./docker-entrypoint.sh /entrypoint.sh
+# ADD ./entrypoint.sh /entrypoint.sh
 ADD ./plugins.sh /plugins.sh
-RUN chmod +x /entrypoint.sh /plugins.sh # /vars.sh
+RUN chmod +x /plugins.sh # /entrypoint.sh /vars.sh
 
 ##############################################################################################
 # WORDPRESS Config
