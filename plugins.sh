@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# WORDPRESS PLUGINS
 
-# Make and Chown Contnet Folder
-mkdir /var/www/html/wp-content
-mkdir /var/www/html/wp-content/plugins
-sudo chown -R www-data:www-data /var/www/html/wp-content
+##############################################################################################
+# WORDPRESS PLUGINS
+##############################################################################################
+
+# Chown Contnet Folder
+# sudo chown -R www-data:www-data /var/www/html/wp-content
+sudo chown -R www-data:www-data /usr/src/wordpress/wp-content
 
 if [ "$1" ]; then
   printf "=> Checking plugins...\n"
@@ -28,7 +30,8 @@ if [ "$1" ]; then
         # get the filename to extract ( handles github download where the filename is master.zip )
         plugindirname="${download##*/}"
         # download and unzip
-        wget $download && unzip -o $plugindirname -d /var/www/html/wp-content/plugins/
+        # wget $download && unzip -o $plugindirname -d /var/www/html/wp-content/plugins/
+        wget $download && unzip -o $plugindirname -d /usr/src/wordpress/wp-content/plugins/
 
         # delete zip file
         rm $plugindirname
@@ -44,7 +47,8 @@ if [ "$1" ]; then
          download="$download.$version.zip"
        fi
        # download and unzip
-       wget https://downloads.wordpress.org/plugin/$download && unzip -o $download -d /var/www/html/wp-content/plugins/
+       # wget https://downloads.wordpress.org/plugin/$download && unzip -o $download -d /var/www/html/wp-content/plugins/
+       wget https://downloads.wordpress.org/plugin/$download && unzip -o $download -d /usr/src/wordpress/wp-content/plugins/
 
        # delete zip file
        rm $download
@@ -52,7 +56,8 @@ if [ "$1" ]; then
 
 
 
-    printf "=> Extracted Plugin to /var/www/html/wp-content/plugins/$plugin \n"
+    # printf "=> Extracted Plugin to /var/www/html/wp-content/plugins/$plugin \n"
+    printf "=> Extracted Plugin to /usr/src/wordpress/wp-content/plugins/$plugin \n"
 
   done <$1
 
@@ -61,4 +66,5 @@ else
 fi
 
 # Chown Contnet Folder Again
-sudo chown -R www-data:www-data /var/www/html/wp-content
+# sudo chown -R www-data:www-data /var/www/html/wp-content
+sudo chown -R www-data:www-data /usr/src/wordpress/wp-content
