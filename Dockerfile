@@ -118,6 +118,7 @@ ADD ./plugins/snapshot /usr/src/wordpress/wp-content/plugins/snapshot
 # ADD ./themes/my-theme /var/www/html/wp-content/themes/my-theme
 
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Cleanup
 # RUN rm /plugins.sh && rm /plugins -r # Delete Plugins script and folder
