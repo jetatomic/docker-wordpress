@@ -119,10 +119,10 @@ ADD ./plugins/snapshot /usr/src/wordpress/wp-content/plugins/snapshot
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["apache2-foreground"]
-
 # Cleanup
-RUN rm /plugins.sh && rm /plugins -r # Delete Plugins script and folder
+# RUN rm /plugins.sh && rm /plugins -r # Delete Plugins script and folder
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["apache2-foreground"]
