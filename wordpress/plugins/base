@@ -2,6 +2,9 @@
 w3-total-cache
 contact-form-7
 wp-mail-smtp
+mainwp
+mainwp-child
 
 # Github or other Zips
 https://github.com/afragen/github-updater/archive/develop.zip
+https://envato.github.io/wp-envato-market/dist/envato-market.zip
